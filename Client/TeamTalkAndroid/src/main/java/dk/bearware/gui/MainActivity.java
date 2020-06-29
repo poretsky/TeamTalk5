@@ -333,6 +333,8 @@ implements TeamTalkConnectionListener,
             }
             break;
             case R.id.action_settings : {
+                if ((mConnection != null) && mConnection.isBound())
+                    ttservice.unwatchBluetoothHeadset();
                 Intent intent = new Intent(MainActivity.this, PreferencesActivity.class);
                 startActivity(intent);
                 break;
